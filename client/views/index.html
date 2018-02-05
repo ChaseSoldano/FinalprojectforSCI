@@ -1,18 +1,22 @@
 <!DOCTYPE html>
-<html ng-app="meetupApp">
+<html ng-app="bookReviewApp">
   <head>
     <meta charset="utf-8">
     <title></title>
   </head>
   <body>
-    <div ng-controller = "meetupsController">
-      <h1>There are {{meetups.length}} meetups</h1>
+    <div ng-controller = "booksController">
+      <h1>There are {{books.length}} books</h1>
     <ul>
-      <li ng-repeat="meetup in meetups"> {{meetup.name}}</li>
+      <li ng-repeat="book in books"> {{book.title}}</li>
     </ul>
-    <form ng-submit="createMeetup()">
-      <input type="text" placeholder="Meetup name" ng-model="meetupName"></input>
+    <form ng-submit="createBook()">
+      <input type="text" placeholder="Book Title" ng-model="bookName"></input>
       <button type="submit" name="button">Add</button>
+    </form>
+    <form ng-submit="removeBook()">
+      <input type="text" placeholder="Book To Delete" >
+      <button type="submit" name="button">Delete</button>
     </form>
   </div>
 

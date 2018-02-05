@@ -1,9 +1,9 @@
-app.controller("meetupsController", ["$scope", "$resource", function($scope, $resource){
+app.controller("booksController", ["$scope", "$resource", function($scope, $resource){
 
 //  function meetupsController($scope){
-var Meetup = $resource("/api/meetups")
-Meetup.query(function(results){
-  $scope.meetups = results;
+var Book = $resource("/api/books")
+Book.query(function(results){
+  $scope.books = results;
 })
 
     // $scope.meetups = []
@@ -11,12 +11,12 @@ Meetup.query(function(results){
     //   {name: "MEAN SF DEVELOPERS"},
     //   {name: "some other meetups"}
     // ]
-    $scope.createMeetup = function () {
-    var meetup = new Meetup ();
-    meetup.name=$scope.meetupName;
-    meetup.$save(function(result){
-      $scope.meetups.push(result);
-      $scope.meetupName = "";
+    $scope.createBook = function () {
+    var book = new Book ();
+    book.name=$scope.bookName;
+    book.$save(function(result){
+      $scope.books.push(result);
+      $scope.bookName = "";
     });
     }
   //}

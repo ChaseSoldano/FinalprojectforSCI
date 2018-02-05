@@ -2,7 +2,7 @@ var express = require("express");
 var app = express();
 var bodyParser = require("body-parser")
 var mongoose = require("mongoose")
-var meetupsController = require ("./server/controllers/meetups-controller")
+var booksController = require ("./server/controllers/meetups-controller")
 
 mongoose.connect("mongodb://localhost:27017/mean-demo")
 
@@ -14,8 +14,9 @@ app.get ('/', function (req, res){
 
 app.use("/js",  express.static(__dirname + "/client/js"));
 
-app.get("/api/meetups", meetupsController.list);
-app.post("/api/meetups", meetupsController.create );
+app.get("/api/books", booksController.list);
+app.post("/api/books", booksController.create );
+app.delete("/api/books", booksController.remove)
 
 app.listen(3000, function () {
   console.log("listening");
